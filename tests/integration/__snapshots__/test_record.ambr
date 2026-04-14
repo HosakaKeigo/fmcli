@@ -1,0 +1,132 @@
+# serializer version: 1
+# name: TestRecordApiError.test_api_500_error
+  '''
+  {
+    "ok": false,
+    "command": "record find",
+    "profile": "",
+    "database": "",
+    "layout": "",
+    "messages": [],
+    "error": {
+      "message": "[HTTP 500 FileMaker エラー] Internal Server Error",
+      "http_status": 500,
+      "api_code": 500,
+      "retryable": false,
+      "hint": "FileMaker Server 側のエラーです。しばらく待ってリトライしてください。",
+      "host": "",
+      "database": ""
+    }
+  }
+  
+  '''
+# ---
+# name: TestRecordApiError.test_no_records_match
+  '''
+  {
+    "ok": true,
+    "command": "record find",
+    "profile": "https://fm.example.com|TestDB",
+    "database": "TestDB",
+    "layout": "TestLayout",
+    "data": [],
+    "messages": [
+      "該当レコードなし (FileMaker api_code: 402)"
+    ]
+  }
+  
+  '''
+# ---
+# name: TestRecordFind.test_find_records
+  '''
+  {
+    "ok": true,
+    "command": "record find",
+    "profile": "https://fm.example.com|TestDB",
+    "database": "TestDB",
+    "layout": "TestLayout",
+    "data": [
+      {
+        "recordId": "10",
+        "modId": "1",
+        "fieldData": {
+          "Name": "田中",
+          "City": "東京"
+        },
+        "portalData": {}
+      }
+    ],
+    "messages": []
+  }
+  
+  '''
+# ---
+# name: TestRecordFind.test_find_with_count
+  '''
+  {
+    "ok": true,
+    "command": "record find --count",
+    "profile": "https://fm.example.com|TestDB",
+    "database": "TestDB",
+    "layout": "TestLayout",
+    "data": {
+      "found_count": 100
+    },
+    "messages": []
+  }
+  
+  '''
+# ---
+# name: TestRecordGet.test_get_record
+  '''
+  {
+    "ok": true,
+    "command": "record get",
+    "profile": "https://fm.example.com|TestDB",
+    "database": "TestDB",
+    "layout": "TestLayout",
+    "data": {
+      "recordId": "42",
+      "modId": "1",
+      "fieldData": {
+        "Name": "田中太郎",
+        "Email": "tanaka@example.com"
+      },
+      "portalData": {}
+    },
+    "messages": []
+  }
+  
+  '''
+# ---
+# name: TestRecordList.test_list_records
+  '''
+  {
+    "ok": true,
+    "command": "record list",
+    "profile": "https://fm.example.com|TestDB",
+    "database": "TestDB",
+    "layout": "TestLayout",
+    "data": [
+      {
+        "recordId": "1",
+        "modId": "1",
+        "fieldData": {
+          "Name": "田中"
+        },
+        "portalData": {}
+      },
+      {
+        "recordId": "2",
+        "modId": "1",
+        "fieldData": {
+          "Name": "鈴木"
+        },
+        "portalData": {}
+      }
+    ],
+    "messages": []
+  }
+  
+  '''
+# ---

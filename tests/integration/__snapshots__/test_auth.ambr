@@ -1,0 +1,56 @@
+# serializer version: 1
+# name: TestAuthList.test_list_no_sessions
+  '''
+  {
+    "ok": true,
+    "command": "auth list",
+    "profile": "",
+    "database": "",
+    "layout": "",
+    "data": [],
+    "messages": []
+  }
+  
+  '''
+# ---
+# name: TestAuthLogout.test_logout
+  '''
+  {
+    "ok": true,
+    "command": "auth logout",
+    "profile": "https://fm.example.com|TestDB",
+    "database": "TestDB",
+    "layout": "",
+    "data": {
+      "message": "Logout successful",
+      "auth_scope": "database",
+      "host": "https://fm.example.com",
+      "database": "TestDB"
+    },
+    "messages": []
+  }
+  
+  '''
+# ---
+# name: TestAuthStatus.test_status_with_valid_session
+  '''
+  {
+    "ok": true,
+    "command": "auth status",
+    "profile": "https://fm.example.com|TestDB",
+    "database": "TestDB",
+    "layout": "",
+    "data": {
+      "authenticated": true,
+      "message": "Session valid",
+      "auth_scope": "database",
+      "host": "https://fm.example.com",
+      "database": "TestDB",
+      "profile_key": "https://fm.example.com|TestDB",
+      "credential_persisted": false
+    },
+    "messages": []
+  }
+  
+  '''
+# ---

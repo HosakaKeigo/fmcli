@@ -1,0 +1,121 @@
+# serializer version: 1
+# name: TestHostInfo.test_host_info
+  '''
+  {
+    "ok": true,
+    "command": "host info",
+    "profile": "https://fm.example.com|TestDB",
+    "database": "TestDB",
+    "layout": "",
+    "data": {
+      "name": "FileMaker",
+      "buildDate": "03/27/2024",
+      "version": "21.0.1.53",
+      "dateFormat": "MM/dd/yyyy",
+      "timeFormat": "HH:mm:ss",
+      "timeStampFormat": "MM/dd/yyyy HH:mm:ss"
+    },
+    "messages": []
+  }
+  
+  '''
+# ---
+# name: TestLayoutDescribe.test_layout_describe
+  '''
+  {
+    "ok": true,
+    "command": "layout describe",
+    "profile": "https://fm.example.com|TestDB",
+    "database": "TestDB",
+    "layout": "TestLayout",
+    "data": {
+      "fieldMetaData": [
+        {
+          "name": "Name",
+          "type": "normal",
+          "displayType": "editText",
+          "result": "text",
+          "global": false,
+          "autoEnter": false,
+          "fourDigitYear": false,
+          "maxRepeat": 1,
+          "maxCharacters": 0,
+          "notEmpty": false,
+          "numeric": false,
+          "repetitions": 1,
+          "timeOfDay": false
+        }
+      ],
+      "portalMetaData": {},
+      "valueLists": []
+    },
+    "messages": []
+  }
+  
+  '''
+# ---
+# name: TestLayoutList.test_layout_list
+  '''
+  {
+    "ok": true,
+    "command": "layout list",
+    "profile": "https://fm.example.com|TestDB",
+    "database": "TestDB",
+    "layout": "",
+    "data": [
+      {
+        "name": "Customers"
+      },
+      {
+        "name": "Events"
+      },
+      {
+        "name": "Reports"
+      }
+    ],
+    "messages": []
+  }
+  
+  '''
+# ---
+# name: TestLayoutList.test_layout_list_with_filter
+  '''
+  {
+    "ok": true,
+    "command": "layout list",
+    "profile": "https://fm.example.com|TestDB",
+    "database": "TestDB",
+    "layout": "",
+    "data": [
+      {
+        "name": "Customers"
+      }
+    ],
+    "messages": []
+  }
+  
+  '''
+# ---
+# name: TestScriptList.test_script_list
+  '''
+  {
+    "ok": true,
+    "command": "script list",
+    "profile": "https://fm.example.com|TestDB",
+    "database": "TestDB",
+    "layout": "",
+    "data": [
+      {
+        "name": "DailyBackup",
+        "isFolder": false
+      },
+      {
+        "name": "SendEmail",
+        "isFolder": false
+      }
+    ],
+    "messages": []
+  }
+  
+  '''
+# ---

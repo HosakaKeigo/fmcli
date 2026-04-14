@@ -1,0 +1,164 @@
+# serializer version: 1
+# name: TestDryRun.test_record_find_dry_run
+  '''
+  {
+    "ok": true,
+    "command": "record find --dry-run",
+    "profile": "https://fm.example.com|TestDB",
+    "database": "TestDB",
+    "layout": "TestLayout",
+    "data": {
+      "method": "POST",
+      "url": "https://fm.example.com/fmi/data/vLatest/databases/TestDB/layouts/TestLayout/_find",
+      "headers": {
+        "Authorization": "Bearer ********...2345",
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "query": [
+          {
+            "Name": "田中"
+          }
+        ],
+        "offset": "1",
+        "limit": "100"
+      }
+    },
+    "messages": [
+      "Dry run: no request was sent"
+    ]
+  }
+  
+  '''
+# ---
+# name: TestDryRun.test_record_list_dry_run
+  '''
+  {
+    "ok": true,
+    "command": "record list --dry-run",
+    "profile": "https://fm.example.com|TestDB",
+    "database": "TestDB",
+    "layout": "TestLayout",
+    "data": {
+      "method": "GET",
+      "url": "https://fm.example.com/fmi/data/vLatest/databases/TestDB/layouts/TestLayout/records?_offset=1&_limit=5",
+      "headers": {
+        "Authorization": "Bearer ********...2345",
+        "Content-Type": "application/json"
+      },
+      "body": null
+    },
+    "messages": [
+      "Dry run: no request was sent"
+    ]
+  }
+  
+  '''
+# ---
+# name: TestExplainFind.test_explain_find
+  '''
+  {
+    "ok": true,
+    "command": "explain find",
+    "profile": "https://fm.example.com|TestDB",
+    "database": "TestDB",
+    "layout": "TestLayout",
+    "data": {
+      "explanation": [
+        "Target: layout 'TestLayout' in database 'TestDB'",
+        "API endpoint: POST /_find on layout 'TestLayout'",
+        "Condition 1: Name='田中'",
+        "Pagination: offset=1, limit=100"
+      ],
+      "query": [
+        {
+          "Name": "田中"
+        }
+      ]
+    },
+    "messages": []
+  }
+  
+  '''
+# ---
+# name: TestSchemaFindSchema.test_find_schema
+  '''
+  {
+    "ok": true,
+    "command": "schema find",
+    "profile": "https://fm.example.com|TestDB",
+    "database": "TestDB",
+    "layout": "TestLayout",
+    "data": {
+      "findable_fields": [
+        {
+          "name": "Name",
+          "type": "text",
+          "global": false
+        },
+        {
+          "name": "Age",
+          "type": "number",
+          "global": false
+        },
+        {
+          "name": "Created",
+          "type": "date",
+          "global": false
+        }
+      ],
+      "portals": [],
+      "value_lists": []
+    },
+    "messages": []
+  }
+  
+  '''
+# ---
+# name: TestSchemaFindSchema.test_find_schema_with_type_filter
+  '''
+  {
+    "ok": true,
+    "command": "schema find",
+    "profile": "https://fm.example.com|TestDB",
+    "database": "TestDB",
+    "layout": "TestLayout",
+    "data": {
+      "findable_fields": [
+        {
+          "name": "Birthday",
+          "type": "date",
+          "global": false
+        }
+      ],
+      "portals": [],
+      "value_lists": []
+    },
+    "messages": []
+  }
+  
+  '''
+# ---
+# name: TestSchemaOutput.test_schema_output
+  '''
+  {
+    "ok": true,
+    "command": "schema output",
+    "profile": "https://fm.example.com|TestDB",
+    "database": "TestDB",
+    "layout": "TestLayout",
+    "data": {
+      "fieldData_keys": [
+        "Name"
+      ],
+      "portalData": {
+        "RelatedItems": [
+          "RelatedItems::Item"
+        ]
+      }
+    },
+    "messages": []
+  }
+  
+  '''
+# ---

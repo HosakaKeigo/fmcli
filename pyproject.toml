@@ -1,0 +1,101 @@
+[project]
+name = "fmcli"
+dynamic = ["version"]
+description = "FileMaker Data API CLI wrapper"
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.12"
+authors = [
+    {name = "HosakaKeigo", email = "hosaka.keigo@gmail.com"},
+]
+keywords = ["filemaker", "claris", "data-api", "cli"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Database :: Front-Ends",
+    "Typing :: Typed",
+]
+
+dependencies = [
+    "typer>=0.15",
+    "httpx>=0.28",
+    "pydantic>=2.10",
+    "keyring>=25.6",
+    "rich>=13.9",
+    "questionary>=2.1.1",
+]
+
+[project.urls]
+Homepage = "https://github.com/HosakaKeigo/fmcli"
+Repository = "https://github.com/HosakaKeigo/fmcli"
+Issues = "https://github.com/HosakaKeigo/fmcli/issues"
+Changelog = "https://github.com/HosakaKeigo/fmcli/blob/main/CHANGELOG.md"
+
+[project.scripts]
+fmcli = "fmcli.main:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "src/fmcli/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/fmcli"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "pytest-cov>=6.0",
+    "pytest-mock>=3.14",
+    "mypy>=1.14",
+    "ruff>=0.8",
+    "pre-commit>=4.0",
+    "respx>=0.22.0",
+    "syrupy>=5.1.0",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+src = ["src"]
+
+[tool.ruff.lint]
+select = [
+    "E",    # pycodestyle errors
+    "W",    # pycodestyle warnings
+    "F",    # pyflakes
+    "I",    # isort
+    "B",    # flake8-bugbear
+    "C4",   # flake8-comprehensions
+    "UP",   # pyupgrade
+    "SIM",  # flake8-simplify
+]
+
+[tool.ruff.lint.per-file-ignores]
+"src/fmcli/cli/*.py" = ["B008"]  # typer は引数デフォルトに関数呼び出しを使う
+
+[tool.mypy]
+python_version = "3.12"
+mypy_path = "src"
+packages = ["fmcli"]
+strict = true
+disallow_any_generics = true
+no_implicit_optional = true
+warn_return_any = true
+warn_unused_configs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q"
+
+[tool.coverage.run]
+source = ["fmcli"]
+
+[tool.coverage.report]
+show_missing = true

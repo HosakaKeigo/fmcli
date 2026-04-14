@@ -2,9 +2,7 @@
 
 ![Python](https://img.shields.io/badge/python-3.12%2B-blue)
 
-FileMaker Data API CLI wrapper.
-
-FileMaker Data API CLI wrapper.
+FileMaker Data API CLI for LLMs.
 
 ## Installation
 

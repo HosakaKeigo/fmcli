@@ -20,7 +20,7 @@ classifiers = [
 ]
 
 dependencies = [
-    "typer>=0.15",
+    "typer>=0.24.1",
     "httpx>=0.28",
     "pydantic>=2.10",
     "keyring>=25.6",
